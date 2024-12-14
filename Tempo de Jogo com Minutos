@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+	int rodadas, contador = 0 ;
+	scanf("%d",&rodadas);
+	do {
+		char* v = (char*)malloc(rodadas*(sizeof(char)));
+		for (int i= 0 ; i < rodadas ; i ++) {
+			scanf(" %c",&v[i]);
+                  if (v[i] == 'D'){
+                        contador++;
+                  }else {
+                        contador--;
+                  }
+		}
+		if (contador%4 == 0) {
+		      printf("N\n");
+		} else if (contador%4 == 1 || contador%4 == -3){
+		      printf("L\n");
+		} else if (contador%4 == 2 || contador%4 == -2){
+		      printf("S\n");
+		}else if (contador%4 == 3 || contador%4 == -1){
+		      printf("O\n");
+		}
+		
+	      contador = 0;
+		
+		scanf(" %d",&rodadas);
+		free (v);
+	} while (rodadas != 0);
+	return 0;
+}
